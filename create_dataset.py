@@ -213,6 +213,7 @@ def main():
     input_path = 'data/S1_File.txt'
     df = pd.read_csv(input_path, sep='\t')
     output_df = create_df(df)
+    pickle.dump(output_df, open('data/cleansed_data.pkl', 'wb'), pickle.HIGHEST_PROTOCOL)
     train_val_test_split(output_df)
 
 
