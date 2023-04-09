@@ -116,8 +116,6 @@ def calculate_num_features(seqs: list) -> int:
     num_features = int(max(flat_list) + 1)
     return num_features
 
-
-
 def main():
     input_path = 'data/S1_File.txt'
     df = pd.read_csv('data/S1_File.txt', sep='\t')
