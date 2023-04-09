@@ -1,8 +1,3 @@
-"""
-This code is from HW5
-"""
-
-import os
 import time
 import numpy as np
 import torch
@@ -60,7 +55,6 @@ def train_RNN(model, device, data_loader, criterion, optimizer, epoch, print_fre
 	for i, (input, target) in enumerate(data_loader):
 		# measure data loading time
 		data_time.update(time.time() - end)
-		p
 		if isinstance(input, tuple):
 			input = tuple([e.to(device) if type(e) == torch.Tensor else e for e in input])
 		else:
@@ -93,8 +87,6 @@ def train_RNN(model, device, data_loader, criterion, optimizer, epoch, print_fre
 				data_time=data_time, loss=losses, acc=accuracy))
 
 	return losses.avg, accuracy.avg, auc.avg
-
-train
 
 def evaluate(model, device, data_loader, criterion, print_freq=10):
 	batch_time = AverageMeter()
