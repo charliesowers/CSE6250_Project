@@ -1,10 +1,10 @@
 # CSE6250_Project
 
-This repo intends to reproduce the work from this paper "Readmission prediction via deep contextual embedding of clinical concepts" by Cao Xiao et al. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0195024#pone.0195024.ref026
+This repo intends to reproduce the work from this paper "Readmission prediction via deep contextual embedding of clinical concepts" by Cao Xiao et al. [link](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0195024#pone.0195024.ref026)
 
 ## Data
 
-A copy of the data is in the data directory labeled 'S1_File.txt', which is downloaded from https://doi.org/10.1371/journal.pone.0195024.s001.
+A copy of the data is in the data directory labeled 'S1_File.txt', which is downloaded from [here](https://doi.org/10.1371/journal.pone.0195024.s001).
 
 ## Getting Started
 
