@@ -57,11 +57,11 @@ content notebook has the training and evaluation results for the CONTENT hospita
 The plotting funtion to plot the loss and accuracy curves are in 
 
 ```
-plot.py
+plots.py
 ```
 
 The utility function for the training script and Custom torch dataset are in 
 
 ```
-util.py
+utils.py
 ```
