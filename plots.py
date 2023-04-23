@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 
-def plot_learning_curves(train_losses, valid_losses, train_accuracies, valid_accuracies):
+def plot_learning_curves(train_losses, valid_losses, train_accuracies, valid_accuracies, path, name):
 	# plot loss curves
 	plt.figure()
 	plt.plot(np.arange(len(train_losses)), train_losses, label='Training loss')
@@ -12,7 +12,7 @@ def plot_learning_curves(train_losses, valid_losses, train_accuracies, valid_acc
 	plt.ylabel('Loss')
 	plt.title('Loss curve')
 	plt.legend()
-	plt.savefig(bbox_inches='tight', fname='loss_curve.png')
+	plt.savefig(bbox_inches='tight', fname=f'{path}/{name}_loss.png')
 
 	# plot accuracy curve
 	plt.figure()
@@ -22,11 +22,11 @@ def plot_learning_curves(train_losses, valid_losses, train_accuracies, valid_acc
 	plt.ylabel('Accuracy')
 	plt.title('Accuracy curve')
 	plt.legend()
-	plt.savefig(bbox_inches='tight', fname='accuracy_curve.png')
+	plt.savefig(bbox_inches='tight', fname=f'{path}/{name}_accuracy.png')
 
-def plot_confusion_matrix(results, class_names):
+def plot_confusion_matrix(results, class_names, path, name):
 	y_true, y_pred = zip(*results)
 	m = confusion_matrix(y_true, y_pred, normalize='true')
 	disp = ConfusionMatrixDisplay(confusion_matrix=m, display_labels=class_names)
 	disp.plot(xticks_rotation='vertical')
-	plt.savefig(bbox_inches='tight', fname='confusion_matrix.png')
+	plt.savefig(bbox_inches='tight', fname=f'{path}/{name}.png')

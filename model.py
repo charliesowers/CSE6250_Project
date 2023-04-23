@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
+from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence, PackedSequence
 import torch.nn.functional as F
 import numpy as np
 
@@ -91,16 +91,16 @@ class RecognitionNetwork(nn.Module):
 		mu, logvar = torch.split(x, split_size_or_sections=self.latent_dim, dim=1)
 
 		# pad the output mu and logvar tensors
-		mu, _ = nn.utils.rnn.pad_packed_sequence(nn.utils.rnn.PackedSequence(mu, packed_sequence.batch_sizes),
+		mu, _ = pad_packed_sequence(PackedSequence(mu, packed_sequence.batch_sizes),
 												 batch_first=True)
-		logvar, _ = nn.utils.rnn.pad_packed_sequence(nn.utils.rnn.PackedSequence(logvar, packed_sequence.batch_sizes),
+		logvar, _ = pad_packed_sequence(PackedSequence(logvar, packed_sequence.batch_sizes),
 													 batch_first=True)
 
 		eps = torch.randn_like(logvar)
 		theta = mu + logvar * eps
 
 		l_b = self.fc4(packed_sequence.data)
-		l_b, _ = nn.utils.rnn.pad_packed_sequence(nn.utils.rnn.PackedSequence(l_b, packed_sequence.batch_sizes),
+		l_b, _ = pad_packed_sequence(PackedSequence(l_b, packed_sequence.batch_sizes),
 												  batch_first=True)
 
 		out = torch.mul(l_b, theta)
