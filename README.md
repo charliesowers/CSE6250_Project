@@ -32,10 +32,36 @@ The following command will train a Word2Vec model based on the diagnosis descrip
 python embedding.py
 ```
 
+## Models
+
+The model class is in 
+
+```
+model.py
+```
+
 ## Word2Vec + Logistic Regression Readmisison Prediction
 
-word2vec_lr notebook has the readmission model based on Word2Vec and logistic regression
+word2vec_lr notebook has the training and evaluation results for the readmission model based on Word2Vec and logistic regression
 
 ## RNN Readmission Prediction
 
-rnn_model notebook has the RNN and the TopicRNN readmission models.
+rnn_model notebook has the training and evaluation results for the RNN hospital readmissio model
+
+## Hybrid TopicRNN (CONTENT) Readmission Prediction
+
+content notebook has the training and evaluation results for the CONTENT hospital readmission model 
+
+## Other scripts
+
+The plotting funtion to plot the loss and accuracy curves are in 
+
+```
+plot.py
+```
+
+The utility function for the training script and Custom torch dataset are in 
+
+```
+util.py
+```
